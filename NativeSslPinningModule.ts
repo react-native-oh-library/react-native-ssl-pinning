@@ -34,12 +34,10 @@ interface Response {
   text: () => Promise<string>;
 }
 
-
 export interface Spec extends TurboModule {
-  getCookies(domain: string): Promise<Cookies>;
-  fetch(url: string, options: Options, callback:(err: Object, res: Object) => void): Promise<Response>;
+  getCookies(domain: string): Promise<unknown>;
+  fetch(url: string, options: Options, callback:(err: Object, res: Object) => void): Promise<unknown>;
   removeCookieByName(cookieName: string): Promise<void>;
 }
 
 export default TurboModuleRegistry.get<Spec>("RNSslPinning") as Spec;
-
